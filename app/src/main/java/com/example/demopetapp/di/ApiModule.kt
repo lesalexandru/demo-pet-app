@@ -1,8 +1,7 @@
 package com.example.demopetapp.di
 
-import com.example.demopetapp.data.manager.AccessTokenManagerImpl
-import com.example.demopetapp.data.remote.TokenAuthenticator
-import com.example.demopetapp.data.remote.mock.RefreshTokenInterceptor
+import com.example.demopetapp.data.remote.authentication.TokenAuthenticator
+import com.example.demopetapp.data.remote.authentication.RefreshTokenInterceptor
 import com.example.demopetapp.data.remote.service.PetFinderService
 import com.example.demopetapp.data.remote.service.TokenService
 import com.example.demopetapp.data.repository.TokenRepositoryImpl

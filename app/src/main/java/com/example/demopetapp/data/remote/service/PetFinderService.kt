@@ -16,6 +16,6 @@ interface PetFinderService {
 
     @GET("animals/{id}")
     suspend fun getAnimal(
-        @Path("id") id: Int
+        @Path("id") id: Long
     ): AnimalDto
 }

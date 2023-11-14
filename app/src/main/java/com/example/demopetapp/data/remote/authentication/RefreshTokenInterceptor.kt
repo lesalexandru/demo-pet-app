@@ -1,6 +1,5 @@
-package com.example.demopetapp.data.remote.mock
+package com.example.demopetapp.data.remote.authentication
 
-import com.example.demopetapp.data.remote.withAuthHeader
 import com.example.demopetapp.domain.manager.AccessTokenManager
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor

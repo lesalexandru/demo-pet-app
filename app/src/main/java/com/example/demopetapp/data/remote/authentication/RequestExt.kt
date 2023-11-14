@@ -1,4 +1,4 @@
-package com.example.demopetapp.data.remote
+package com.example.demopetapp.data.remote.authentication
 
 import okhttp3.Request
 

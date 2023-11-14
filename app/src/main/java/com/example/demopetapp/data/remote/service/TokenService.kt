@@ -1,6 +1,5 @@
 package com.example.demopetapp.data.remote.service
 
-import androidx.core.os.BuildCompat
 import com.example.demopetapp.BuildConfig
 import com.example.demopetapp.data.remote.dto.TokenDto
 import retrofit2.http.Field

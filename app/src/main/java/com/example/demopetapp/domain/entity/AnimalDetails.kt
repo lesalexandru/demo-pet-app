@@ -6,5 +6,5 @@ data class AnimalDetails(
     val size: String,
     val gender: String,
     val status: String,
-    val distance: String
+    val distance: Double?
 )

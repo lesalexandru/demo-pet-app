@@ -1,7 +1,7 @@
 package com.example.demopetapp.di
 
-import com.example.demopetapp.data.remote.authentication.TokenAuthenticator
 import com.example.demopetapp.data.remote.authentication.RefreshTokenInterceptor
+import com.example.demopetapp.data.remote.authentication.TokenAuthenticator
 import com.example.demopetapp.data.remote.service.PetFinderService
 import com.example.demopetapp.data.remote.service.TokenService
 import com.example.demopetapp.data.repository.TokenRepositoryImpl
@@ -27,11 +27,20 @@ object ApiModule {
         loggingInterceptor: HttpLoggingInterceptor,
     ): OkHttpClient.Builder = OkHttpClient().newBuilder().addInterceptor(loggingInterceptor)
 
+    @Provides
+    @Singleton
+    fun getDefaultRetrofitBuilder(): Retrofit.Builder =
+        Retrofit.Builder()
+            .baseUrl(BASE_API_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+
     @Singleton
     @Provides
-    fun getTokenService(defaultOkHttpClientBuilder: OkHttpClient.Builder): TokenService {
-        return Retrofit.Builder()
-            .baseUrl(BASE_API_URL)
+    fun getTokenService(
+        defaultRetrofitBuilder: Retrofit.Builder,
+        defaultOkHttpClientBuilder: OkHttpClient.Builder
+    ): TokenService {
+        return defaultRetrofitBuilder
             .client(defaultOkHttpClientBuilder.build())
             .build()
             .create(TokenService::class.java)
@@ -40,13 +49,12 @@ object ApiModule {
     @Provides
     @Singleton
     fun getPetFinderService(
+        defaultRetrofitBuilder: Retrofit.Builder,
         defaultOkHttpClientBuilder: OkHttpClient.Builder,
         refreshTokenInterceptor: RefreshTokenInterceptor,
         petFinderAuthenticator: TokenAuthenticator
     ): PetFinderService {
-        return Retrofit.Builder()
-            .baseUrl(BASE_API_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+        return defaultRetrofitBuilder
             .client(
                 defaultOkHttpClientBuilder
                     .addInterceptor(refreshTokenInterceptor)

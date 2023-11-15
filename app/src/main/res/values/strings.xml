@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">DemoPetApp</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="empty_animals_list_message">Animals list is empty</string>
+    <string name="image_not_available">Image not available</string>
+    <string name="loading_items">Loading items</string>
+    <string name="gender_label">Gender:</string>
+    <string name="breed_label">Breed:</string>
+    <string name="size_label">Size</string>
+    <string name="status_label">Status:</string>
+    <string name="distance_label">Distance:</string>
+    <string name="n_a">N/A</string>
 </resources>

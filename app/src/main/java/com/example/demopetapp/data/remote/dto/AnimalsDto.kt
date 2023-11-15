@@ -3,7 +3,7 @@ package com.example.demopetapp.data.remote.dto
 import com.google.gson.annotations.SerializedName
 
 data class AnimalsDto(
-    val animals: List<AnimalDto>,
+    val animals: List<AnimalDto.Animal>,
     val pagination: Pagination
 ) {
     data class Pagination(

@@ -11,10 +11,10 @@ data class AnimalDto(val animal: Animal) {
         val colors: Colors,
         val contact: Contact,
         val description: String,
-        val distance: Any?,
+        val distance: Double?,
         val environment: Environment,
         val gender: String,
-        val id: Int,
+        val id: Long,
         @SerializedName("_links")
         val links: Links,
         val name: String,

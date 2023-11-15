@@ -34,7 +34,7 @@ import com.example.demopetapp.presentation.ui.theme.DemoPetAppTheme
 fun AnimalDetailsScreen(animalId: Long?) {
 
     val viewModel: AnimalDetailsViewModel = hiltViewModel()
-    val viewState by viewModel.animalIdStateFlow.collectAsState()
+    val viewState by viewModel.animalStateFlow.collectAsState()
 
     LaunchedEffect(Unit) {
         if (animalId != null && viewState is ViewState.Loading) {

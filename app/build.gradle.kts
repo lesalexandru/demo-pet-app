@@ -111,6 +111,11 @@ dependencies {
 
     // Coil image load
     implementation("com.github.skydoves:landscapist-coil:1.3.2")
+
+    // Tests
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("io.mockk:mockk:1.13.3")
 }
 
 // Allow references to generated code

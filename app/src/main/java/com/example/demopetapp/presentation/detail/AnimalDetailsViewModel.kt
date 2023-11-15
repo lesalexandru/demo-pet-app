@@ -18,20 +18,20 @@ class AnimalDetailsViewModel @Inject constructor(
     private val getAnimalDetailsTask: GetAnimalDetailsTask
 ) : ViewModel() {
 
-    private val _animalIdStateFlow: MutableStateFlow<ViewState<AnimalDetails>> = MutableStateFlow(ViewState.Loading)
-    val animalIdStateFlow: StateFlow<ViewState<AnimalDetails>> = _animalIdStateFlow
+    private val _animalStateFlow: MutableStateFlow<ViewState<AnimalDetails>> = MutableStateFlow(ViewState.Loading)
+    val animalStateFlow: StateFlow<ViewState<AnimalDetails>> = _animalStateFlow
 
     fun getAnimalDetails(id: Long) {
         val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-            _animalIdStateFlow.update {
+            _animalStateFlow.update {
                 ViewState.Error(throwable.localizedMessage ?: "")
             }
         }
 
-        _animalIdStateFlow.update { ViewState.Loading }
+        _animalStateFlow.update { ViewState.Loading }
         viewModelScope.launch(exceptionHandler) {
             getAnimalDetailsTask(id).collect { animalDetails ->
-                _animalIdStateFlow.update { ViewState.Success(animalDetails) }
+                _animalStateFlow.update { ViewState.Success(animalDetails) }
             }
         }
     }

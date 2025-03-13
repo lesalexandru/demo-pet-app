@@ -32,11 +32,6 @@ private fun NavGraphBuilder.addAnimalsScreen(
 ) {
     composable(
         route = Screen.AnimalsScreen.route,
-        arguments = listOf(
-            navArgument("id") {
-                type = NavType.LongType
-            }
-        ),
         enterTransition = {
             when (initialState.destination.route) {
                 Screen.DetailsScreen.route -> slideAndFadeIn(from = Direction.Left)
